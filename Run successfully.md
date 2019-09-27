@@ -37,13 +37,26 @@ jps:
 
 - 启动HDFS服务
 
-  ![18](/home/syx/桌面/18.png)
+  ![18](/home/syx/桌面/18.png)运行MapReduce应用程序
 
-  ​
+  - 提交jar命令并查看运行结果
+    运行grep示例, 结果如下：
+
+    ![19](/home/syx/桌面/19.png)
+
+    ![20](/home/syx/桌面/20.png)
+
+    ![21](/home/syx/桌面/21.png)运行 wordcount 示例
+
+    ![22](/home/syx/桌面/22.png)
+
+    ![23](/home/syx/桌面/23.png)
+
+    ​
 
 ## Mistakes
 
-1. fs![m1](/home/syx/桌面/m1.png)
+1. FS![m1](/home/syx/桌面/m1.png)
 
    solu:
 
@@ -56,3 +69,5 @@ jps:
    ```
 
    but this "input" is not the one in the hadoop FS.
+
+2. ​
