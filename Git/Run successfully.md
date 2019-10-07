@@ -52,6 +52,30 @@ jps:
 
     ![23](/home/syx/桌面/23.png)
 
+    ### HDFSFileExist:
+
+    ![FIleE1](/home/syx/桌面/FileE2.png)
+
+    ![FIleE1](/home/syx/桌面/FIleE1.png)
+
+    ### ListHDFSFile:
+
+    ![listHDFSFile](/home/syx/文档/Git/listHDFSFile.png)
+
+    ![ListHDFSFile](/home/syx/文档/Git/ListHDFSFile.png)
+
+    ### WriteHDFSFIle
+
+    ![writeHDFSFile](/home/syx/文档/Git/writeHDFSFile.png)
+
+    ![WriteHDFSFile](/home/syx/文档/Git/WriteHDFSFile.png)
+
+    ### ReadHDFSFile
+
+    ![ReadHDFSFile](/home/syx/文档/Git/ReadHDFSFile.png)
+
+    ![ReadHDFSFile2](/home/syx/文档/Git/ReadHDFSFile2.png)
+
     ​
 
 ## Mistakes
@@ -70,4 +94,8 @@ jps:
 
    but this "input" is not the one in the hadoop FS.
 
-2. ​
+2. Ignore the upper-case of the file name
+
+   ![mistake1-case](/home/syx/文档/Git/mistake1-case.png)
+
+   the correct name of class is : ListHDFSFile
