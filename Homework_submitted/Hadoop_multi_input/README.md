@@ -33,5 +33,5 @@ xiaomi	beijing
 xiecheng	shanghai
 alibaba	
 
-and the code for testing will get "indexoutoferror"!!
+and the code for testing will get "java.lang.ArrayIndexOutOfBoundsException: 1"!!
 4. what a pity!!!  :(
