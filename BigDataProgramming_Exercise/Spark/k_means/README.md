@@ -6,5 +6,5 @@
 ## 变量
 1. Vector points: all points
 2. kpoints: points as centers
-3. pointstatus: $$(\sigma x_i, \sigma_y_i)$$[所有点的横坐标之和，纵坐标之和]
-4. newpoints: $$(\sigma x_i/# X, \sigma_y_i/ Y)$$[新计算出的聚类中心:所有点的坐标的平均值]
+3. pointstatus: [所有点的横坐标之和，纵坐标之和]
+4. newpoints: 新计算出的聚类中心:[所有点的坐标的横坐标的平均值， 纵坐标的平均值]
