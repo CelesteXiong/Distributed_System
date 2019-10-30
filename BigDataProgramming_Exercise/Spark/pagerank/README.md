@@ -15,3 +15,4 @@
   [PageRank算法参考网址](https://blog.csdn.net/hguisu/article/details/7996185)
 ## 函数
 1. FlapMapToPair(func): *func* can return a Iterator
+2. Iterables.size(outsideWeight._1)
