@@ -13,3 +13,5 @@
   ![](https://img-my.csdn.net/uploads/201209/20/1348120862_4424.png)
 
   [PageRank算法参考网址](https://blog.csdn.net/hguisu/article/details/7996185)
+## 函数
+1. FlapMapToPair(func): *func* can return a Iterator
