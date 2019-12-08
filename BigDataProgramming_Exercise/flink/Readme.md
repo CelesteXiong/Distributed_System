@@ -1,18 +1,35 @@
-# twitter
+# TwitterJsonSplit
 
 ## class
 
 1. jsonnode
 2. ObjectMapper
 
-# k_means
+# K_Means
 
 问题: 
 
-1. broadcast作用:
-2. 中间结果没有输出
+1. broadcast:
 
-参考资料
+   - 使用场景?
+
+   - 是到节点还是task?
+
+     Flink程序运行时会发送到下游每个Task中，供Task读取并使用对应配置信息，下游Task可以根据该状态变量就可以获取到对应的配置值。
+
+     本题中的"下游"指的是?
+
+     助教: 谁getbroadcastvalue谁就是下游
+
+2. 中间结果(`.map`/`.filter`)中print没有输出![image-20191208095616982](flink_programming.assets/image-20191208095616982.png)
+
+   
+
+   助教: 不应该??
+
+   待定
+
+**参考资料**
 
 1. iteration: https://ci.apache.org/projects/flink/flink-docs-release-1.9/dev/batch/
 
@@ -34,6 +51,7 @@
      - Case Class Fields
 
 3. **broadcast:** 
+
    - https://ci.apache.org/projects/flink/flink-docs-stable/dev/batch/#broadcast-variables
    - Broadcast variables allow you to make a data set available to <u>all parallel instances of an operation</u>, in addition to the regular input of the operation. This is useful for auxiliary data sets, or data-dependent parameterization. <u>The data set will then be accessible at the operator as a Collection.</u>
      - **Broadcast**: broadcast sets are registered by name via `withBroadcastSet(DataSet, String)`, and
@@ -50,21 +68,27 @@
    - euclideanDistance(Point other)
 
    - clear()
-   - toString(): x+" " y
+   - toString(): x+" "+ y
 
 2. Centroid
 
    - Centroid(id, x, y)
    - Centroid(id, Point)
-   - toString(): x+" " y
+   - toString(): x+" " +y
 
 ## main
 
 1. 迭代DataSet: 
-   - 设置初始迭代: IterativeDataSet \<Centroid\> loop
-   - 经过一次迭代: DataSet\<Centroid\> newCentroids =  new IterationStepImpl.runStep(points, loop)
-   - 设置迭代终止条件: DataSet\<Centroid\>  finalCentroids = loop.closeWith(newCentroids, new TerminationCriterionImpl().getTerminatedDataSet(newCentroids, loop));
-   - 所以至少会经过一次迭代吗
+
+   - 设置初始迭代: `IterativeDataSet <Centroid> loop`
+   - 经过一次迭代: `DataSet<Centroid> newCentroids =  new IterationStepImpl.runStep(points, loop)`
+   - 设置迭代终止条件: `DataSet<Centroid>  finalCentroids = loop.closeWith(newCentroids, new TerminationCriterionImpl().getTerminatedDataSet(newCentroids, loop));`
+
+2. 所以至少会经过一次迭代吗
+
+   助教: 自己设置一下迭代次数为0试试
+
+   待定
 
 ## IterationStep.java
 
@@ -76,6 +100,10 @@
      - DataSet\<Centroid\> centroid
    - solu:
      - 遍历所有中心点, 计算欧式距离, 寻找最小距离对应的中心点
+     - 计算新中心点(利用Utils中的类):
+       - reduce: accumulate
+       - map: account
+       - reduce: average
 
 ## TerminationCriterionImpl.java
 
@@ -84,10 +112,12 @@
      - DataSet\<Centroid\>  newCentroids, DataSet\<Centroid\> oldCentroids
    - return:
      - Tuple2<Tuple3<Integer, Double, Double>, Tuple3<Integer, Double, Double>>>
+   - solu: 
+     - join-->寻找到id相同的新旧中心点: Tuple2(Centroid, Centroid)
+     - map: 转换格式: Tuple2(,)-->Tuple2(Tuple3, Tuple3) [因filter输入输出格式需一致, 而题目要求的输出格式既定]
+     - filter: 计算新旧中心点的距离, 并且用`EPSILON`筛选, 大于该阈值则返回`True`
 
-## solution
-
-## function:
+## function
 
 1. new Mapfunction
 2. new FilterFunction
@@ -118,28 +148,29 @@
 
    - 2: output
 
-
-
 # Watermarker
 
 问题:
 
 1. 水位线是由人为定义的吗? : 事件时间-最大容忍时间
 
-参考资料:
+   助教: 是的
+
+**参考资料:**
 
 1. watermarker https://ci.apache.org/projects/flink/flink-docs-stable/dev/event_timestamp_extractors.html
    - More specifically, one can assign timestamps and watermarks by implementing one of the `AssignerWithPeriodicWatermarks` and `AssignerWithPunctuatedWatermarks`
 
-## solution:
+## solution
 
 https://ci.apache.org/projects/flink/flink-docs-release-1.9/dev/event_timestamps_watermarks.html
 
 1. **With Periodic Watermarks**
+
    - AssignerWithPeriodicWatermarks assigns timestamps and generates watermarks periodically (possibly depending on the stream elements, or purely based on processing time).
    - The interval (every n milliseconds) in which the watermark will be generated is defined via ExecutionConfig.setAutoWatermarkInterval(...). The assigner’s getCurrentWatermark() method will be called each time, and a new watermark will be emitted if the returned watermark is non-null and larger than the previous watermark.
 
-1. 获取当前时间, 记录当前最晚时间戳(保存为类变量);
+2. 获取当前时间, 记录当前最晚时间戳(保存为类变量);
 
    ```java
    // 给定的可容忍的时间跨度 t
@@ -154,7 +185,7 @@ https://ci.apache.org/projects/flink/flink-docs-release-1.9/dev/event_timestamps
        }
    ```
 
-2. 获取水位线: (当前最晚时间戳-最大容忍时间);
+3. 获取水位线: (当前最晚时间戳-最大容忍时间);
 
    ```java
    @Nullable
@@ -168,11 +199,11 @@ https://ci.apache.org/projects/flink/flink-docs-release-1.9/dev/event_timestamps
 
 # CapacityMonitor
 
-参考资料:
+**参考资料:**
 
 1. https://ci.apache.org/projects/flink/flink-docs-stable/dev/stream/state/state.html
 
-## solu:
+## solution
 
 1. ValueState\<T\> count 
    - access the state value `count.value()`
