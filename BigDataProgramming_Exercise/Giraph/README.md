@@ -1,3 +1,4 @@
+# 精简
 1. Vertex:
    a. setValue()
    b. getValue()
@@ -67,6 +68,6 @@
 
    - 第一轮超步: 不需要遍历消息, 直接计算本节点的rank值-->setValue->发消息
 
-   - 其他轮超步: 遍历消息-->计算本届点的rank值, setValue-->发消息;
+   - 其他轮超步: 遍历消息-->计算本节点的rank值, setValue-->发消息;
    - 判断结束条件, 令节点休眠: vertex.voteHalt()
    - 全部节点休眠, 任务结束.
