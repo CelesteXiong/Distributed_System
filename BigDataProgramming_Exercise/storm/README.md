@@ -10,6 +10,7 @@
       - .put(key, value): 若插入重复的key, 则value会被覆盖
       - .remove(key)
   - 易错: 给单词初始化个数时为1, 不是0
+  - 注意: CounterBolt表示流计算结束的词"stop", 遇到之后需要将结果emit给PrinterBolt.
 ## 2.window_join
   - 重要的类:
     - tuple
