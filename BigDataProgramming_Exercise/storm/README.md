@@ -1,9 +1,33 @@
+## 文件IO
+
+1. BufferedWriter:
+
+   ```java
+   String outputfile;
+   StringBuilder outputs;
+   
+   BufferedWriter bw = FileProcess.getWriter(outputfile);
+   FileProcess.write(outputs.toString(),bw);
+   FileProcess.close(bw);
+   ```
+
+
+
+## 工具
+
+1. String.trim: 去除首尾空格
+2. map: 
+
 # Notes
+
 ## 0.运行流程
+
   - spout
   - bolt
   - 通信: collector.emit()
+
 ## 1.warm_up
+
   - 重要的类:
     - Map.Entry<String, Integer> entry
     - HashMap<>()
@@ -11,7 +35,9 @@
       - .remove(key)
   - 易错: 给单词初始化个数时为1, 不是0
   - 注意: CounterBolt表示流计算结束的词"stop", 遇到之后需要将结果emit给PrinterBolt.
+
 ## 2.window_join
+
   - 重要的类:
     - tuple
       - .getValues()
@@ -22,9 +48,11 @@
         .join("spout2ID","join_on_key2","spout1ID)
         .select("selected_id1, selected_id2, ...")
         .withThumblingWindow(new BaseWindowBolt.Duration(2, TimeUnit.SECONDS));
+
 ## 3.slide_count_window
+
   - key: letter
-  - value: ArrayList<String> 
+  - value: ArrayList\<String\> 
     - 0: 输入的value
     - 1: count
     - 2: #window_num
@@ -32,13 +60,15 @@
   - 某个key被emit给printerbolt后:
     - 在hashmap中对应的(key,value)中的value要被截断剩下最后一个字符[因为是处理两个数据之后就能输出最近三次的数据,3-2=1]
     - 该key对应的窗口数量要增加1, 对应的count值要为0(等到下一个key相同的pair输入,count将加一)
-## 4. topn
+
+## 4. top_n
+
   - 重要的类: 
     - hashtags: 返回所有的topic
     - ValueComparator : 构造比较的规则
     - private class ValueComparator implements Comparator<Map.Entry<String, Integer>> {
-        @Override
-        public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
-            return (o2.getValue() - o1.getValue());
-        }
-    }
+      @Override
+      public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+          return (o2.getValue() - o1.getValue());
+      }
+      }
