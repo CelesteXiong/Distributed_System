@@ -14,11 +14,13 @@ public class ParseJsonAndSplitImpl extends ParseJsonAndSplit{
 //        String parse = (jsonParser);
         jsonParser = new ObjectMapper();
         JsonNode node = jsonParser.readTree(value);
+        // juege node.has("user"), node.has("lang")
         String lang = node.get("user").get("lang").asText();
         if (!lang.equals("en"))
         {
             return;
         }
+        // judge node.has("text")
         String text = node.get("text").asText();
         String[] words = text.split(" ");
         HashMap<String, Integer> hashmap = null;

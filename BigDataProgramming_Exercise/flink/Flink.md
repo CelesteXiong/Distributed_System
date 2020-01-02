@@ -40,8 +40,12 @@
    jsonparser = new ObjectMapper();
    // 解析json
    JsonNode node = jsonParser.readTree(value);
+   .readValue()
+   // 判断是否有关键字"field"
+   .has("field");
    // 获取值
-   String lang = node.get("user").get("lang").asText();
+   .get("field"); //获取有关键字"field"的jsonnode
+   String lang = node.get("user").get("lang").asText();//遇到叶子节点时用.asText()获取字符
    ```
 
 3. String.toLowerCase()
