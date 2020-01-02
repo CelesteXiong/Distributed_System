@@ -87,8 +87,11 @@
         stopWords.add(stopword);
     }
     // 写入
-    BufferedWriter bw = FileProcess.getWriter(outputFile);
-    FileProcess.write(result, bw);
+    String outputfile;
+    StringBuilder outputs;
+    BufferedWriter bw = FileProcess.getWriter(outputfile);
+    FileProcess.write(outputs.toString(),bw);
+    FileProcess.close(bw);
    ```
 2. 解析: JsonParser
    ```java
