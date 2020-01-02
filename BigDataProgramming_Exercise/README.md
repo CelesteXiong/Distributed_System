@@ -202,18 +202,18 @@ Text() // 存储文本类
     ```
 6. ValueStatus
   ValueState\<T\> count;
-   ```java
+    ```java
     // access the state value 
     count.value();
     // update the state value
     count.update(newCount);
     // clear the state, after clear, it becomes `null` or the `default value` in the class `Configuration`
     count.clear();
-  ```
+    ```
 
 ### Giraph
 1. balabala
-   ```java
+    ```java
     aggregate(COUNT_VERTEX, new IntWritable(1));
     if(getSuperstep()==2)
     {
@@ -221,6 +221,29 @@ Text() // 存储文本类
         vertex.setValue(v1);
         vertex.voteToHalt();
     }
-   ```
+    ```
 2. voteHalt(): 通过判断超步步数等;
 3. 顶点之间通信: sendMessageToAllEdges(vertex, value);
+4. vertex.getNumEdges();
+
+
+
+补充: 
+giraph ssp:
+```java
+public void compute(Vertex<LongWritable, DoubleWritable, FloatWritable>
+vertex, Iterable<DoubleWritable> messages）{
+double minDist = isSource(vertex) ? 0d : Double.MAX_VALUE;
+for (DoubleWritable message : messages) {
+minDist = Math.min(minDist, message.get());
+}
+if (minDist < vertex.getValue().get()) {
+vertex.setValue(new DoubleWritable(minDist));
+for (Edge<LongWritable, FloatWritable> edge : vertex.getEdges()) {
+double distance = minDist + edge.getValue().get();
+sendMessage(edge.getTargetVertexId(), new DoubleWritable(distance));
+}
+}
+vertex.voteToHalt();
+}
+```
