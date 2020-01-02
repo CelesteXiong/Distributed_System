@@ -247,3 +247,85 @@ sendMessage(edge.getTargetVertexId(), new DoubleWritable(distance));
 vertex.voteToHalt();
 }
 ```
+
+
+
+## 一些变量类
+
+- Text
+
+```java
+Text LastName = new Text();
+```
+
+Text——split——> StringList
+
+```java
+String[] line = value.toString().split("\t");
+LastName.set(line[1]);
+```
+
+- TextPair
+- List初始化
+
+```java
+List<String> name = new ArrayList();
+name.add("xxx");
+```
+
+- 判断x是不是数字
+
+  ```java
+  StringUtils.isNumeric(x)
+  ```
+
+- RDD（spark中）
+
+  ```java
+  public JavaPairRDD<String, Integer> wordcount(JavaRDD<String> lines) {
+          return lines
+                  .flatMap((String line) -> Arrays.asList(line.split(" ")).iterator())
+                  .mapToPair((String word) -> new Tuple2<>(word, 1))
+                  .reduceByKey((Integer integer, Integer integer2) -> integer + integer2);
+      }
+  ```
+
+  JavaPairRDD之间可以做join：
+
+  ```
+  JavaPairRDD result = javapairRdd1.join(javapairRdd2);
+  ```
+
+- vector 取出
+
+  ```
+  vector.apply(0)
+  vector.apply(1)
+  ```
+
+- values取出
+
+  ```
+  values.get(0)
+  ```
+
+- Tuple2<XX, XX> 取出
+
+  ```
+  Tuple2._1
+  Tuple2._2
+  ```
+
+- Tuple取出
+
+  ```
+  tuple.getInteger(0) 
+  tuple.getInteger(1) 
+  ```
+
+- 计算平方
+
+  ```
+   Math.pow(x, 2)
+  ```
+
