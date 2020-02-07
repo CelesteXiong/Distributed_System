@@ -113,6 +113,7 @@
    ```
 ## 编程
 ### MapReduce
+参考xioccmo
 ```
 (input) <k1, v1> -> 
 map -> <k2, v2> -> 
@@ -136,10 +137,6 @@ reduce(KEYIN key, Iterable<VALUEIN> values, Context context)
 
 Context<KEYIN,VALUEIN,KEYOUT,VALUEOUT> // A context object that allows input and output from the task. It is only supplied to the Mapper or Reducer.
     .write(KEYOUT key, VALUEOUT value) // 生成一组键值
-
-
-
-
 
 IntWritable() // 一个存储Integer的可比较类 
     .(int value) // 初始化设置Inwritable的值 
@@ -247,8 +244,6 @@ sendMessage(edge.getTargetVertexId(), new DoubleWritable(distance));
 vertex.voteToHalt();
 }
 ```
-
-
 
 ## 一些变量类
 以下为Jiayi Mei补充内容哟 : )
