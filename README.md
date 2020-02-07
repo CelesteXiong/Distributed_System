@@ -2,7 +2,7 @@
 - This is the compulsory course homework for ECNUers in Dase
 - All codes are achieved on Ubuntu:
   - Ubuntu version:
-    ```
+    ```shell
         No LSB modules are available.
         Distributor ID:	Ubuntu
         Description:	Ubuntu 18.04.3 LTS
@@ -10,21 +10,21 @@
         Codename:	bionic
     ```
   - kernel version:
-    ```
+    ```shell
         5.3.0-28-generic
     ```
 ## Exercise
 **This is the programming exercise**
 1. Environment: 
    - jdk-8u221-linux-x64
-        ```
+        ```shell
             java version "1.8.0_221"
             Java(TM) SE Runtime Environment (build 1.8.0_221-b11)
             Java HotSpot(TM) 64-Bit Server VM (build 25.221-b11, mixed mode)
         ```
    - IDEA: ideaIC-2019.2.2-no-jbr
 2. File tree introduction
-   ```
+   ```shell
     ├─BigDataProgramming_Exercise
     │  ├─flink 
     │  │  ├─k_means # A assignment project
