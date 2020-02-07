@@ -135,4 +135,5 @@
 ## Hands_on
 **This is the practice of curriculumn theory**
 1. Environment: concrete for different assignment
-
+2. Note:
+   - `3-6周作业`和`7-9周作业`中的`README.md`文件内, 有一部分图片缺失, 但是`.pdf`文件内容是完整的
