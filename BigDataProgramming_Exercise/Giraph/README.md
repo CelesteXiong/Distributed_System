@@ -22,7 +22,6 @@
 2. aggregator: https://giraph.apache.org/aggregators.html
 
    - ![image-20191226162336973](Giraph.assets/image-20191226162336973.png)
-
    - get/send values![image-20191228203115061](Giraph.assets/image-20191228203115061.png)
    - ![image-20191228203205603](Giraph.assets/image-20191228203205603.png)
    - set value![image-20191228203243609](Giraph.assets/image-20191228203243609.png)
@@ -47,11 +46,9 @@
 # Pagerank
 
 1. 根据计算模型
-
    - giraphConf.setComputationClass(impl.class)
 
 2. Impl
-
    - 需要每一轮超步内, 将计算出的rank值存储在节点中
    - 根据公式: 
      - 第一轮的每个节点不需要相邻节点的rank值, 其值计算: 1/N(N:所有节点的数量), 并发送
@@ -61,7 +58,6 @@
        - 需要判断是否需要进入休眠: vertex.voteHalt(); (所有节点进入休眠之后任务结束)
 
 3. 其他函数: 
-
    - getSuperstep(): 获得当前处于第几轮超步(从0开始)
 
 4. 总结: 
