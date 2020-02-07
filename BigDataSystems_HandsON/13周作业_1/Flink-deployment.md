@@ -46,7 +46,7 @@
 
     * 本地模式启动Scala-Shell
 
-      ![scala_shell_local_after_mistake](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/scala_shell_local_after_mistake.png)
+      ![scala_shell_local_after_mistake](pic/scala_shell_local_after_mistake.png)
 
     *   在 `scala>` 后输入 scala 代码
 
@@ -59,7 +59,7 @@
 
         运行结果如下图所示： 
 
-        ![senv.execute](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/senv.execute.png)
+        ![senv.execute](pic/senv.execute.png)
 
 *   通过提交 jar 包运行DataStream程序
 
@@ -69,19 +69,19 @@
 
       `终端2` 中启动socket服务作为数据源
 
-      ![terminal_2](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/terminal_2.png)
+      ![terminal_2](pic/terminal_2.png)
 
       `终端3` 中提交jar包
 
-      ![terminal_3](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/terminal_3.png)
+      ![terminal_3](pic/terminal_3.png)
 
         向 `终端2` 中输入数据进行wordcount计算，在 `终端1` 运行结果如下图所示:
 
-      ![terminal_1](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/terminal_1.png)
+      ![terminal_1](pic/terminal_1.png)
 
         在运行过程中另起一个终端执行 `jps` 查看进程，此时会出现 CliFrontend 进程, 计算运行结束后该进程消失
 
-      ![clientfrontend](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/clientfrontend.png)
+      ![clientfrontend](pic/clientfrontend.png)
 
         DataStream程序终止的两种方法
 
@@ -89,9 +89,9 @@
 
         * 命令行终止`flink cancel JobID`，`JobID`通过`flink list`查询
 
-          ![flink_list](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/flink_list.png)
+          ![flink_list](pic/flink_list.png)
 
-          ![flink_cancel](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/flink_cancel.png)
+          ![flink_cancel](pic/flink_cancel.png)
 
         **注：杀掉客户端进程是无法停止程序的**
 
@@ -99,21 +99,21 @@
 
       `终端2` 中启动本地服务
 
-      ![detached_t_2](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/detached_t_2.png)
+      ![detached_t_2](pic/detached_t_2.png)
 
       `终端3` 中提交程序jar包
 
-      ![detached_t_3](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/detached_t_3.png)
+      ![detached_t_3](pic/detached_t_3.png)
 
       程序提交完毕后会自动退出客户端，不再打印作业进度等信息
 
       向 `终端2` 中输入数据进行wordcount计算，在 `终端1` 运行结果如下图所示:
 
-      ![detached_t_1](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/detached_t_1.png)
+      ![detached_t_1](pic/detached_t_1.png)
 
       在运行过程中另起一个终端执行 `jps` 查看进程，此时不会出现 CliFrontend 进程
 
-      ![detached_t_4](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/detached_t_4.png)
+      ![detached_t_4](pic/detached_t_4.png)
 
       DataStream程序终止的两种方法
 
@@ -121,15 +121,15 @@
 
       - 命令行终止`flink cancel JobID`，`JobID`通过`flink list`查询
 
-        ![detached_flink_list](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/detached_flink_list.png)
+        ![detached_flink_list](pic/detached_flink_list.png)
 
-        ![detached_flink_cancel](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/detached_flink_cancel.png)
+        ![detached_flink_cancel](pic/detached_flink_cancel.png)
 
     **注：杀掉客户端进程是无法停止程序的**
 
     **输入`:q`退出Scala-shell**
 
-    ![quit_scala_shell](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/quit_scala_shell.png)
+    ![quit_scala_shell](pic/quit_scala_shell.png)
 
 
 ### 2. 单机伪分布式部署
@@ -179,18 +179,18 @@
 
 *   启动命令
 
-    ![start_cluster_localhost](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/start_cluster_localhost.png)
+    ![start_cluster_localhost](pic/start_cluster_localhost.png)
 
 *   查看进程，验证是否成功启动服务
     * 使用jps命令，因为在此单机伪分布式部署模式下，该节点既充当JobManager角色，又充当TaskManager角色，故该节点上会有两个进程：一个JobManager进程和一个TaskManager进程。若同时出现JobManager进程和TaskManager进程，则表明配置成功以及启动成功。
 
-      ![start_cluster_jps](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/start_cluster_jps.png)
+      ![start_cluster_jps](pic/start_cluster_jps.png)
 
       `在standalone模式下，Jobmanager的进程名为StandaloneSessionClusterEntrypoint`
 
 *   在 http://localhost:8081 (端口号为在配置文件`flink-conf.yaml`中设置的 `rest.port`) 确认flink是否正常运行
   
-    ![standalone_webui](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/standalone_webui.png)
+    ![standalone_webui](pic/standalone_webui.png)
     因为本例在flink-conf.yaml中设置taskmanager.numberOfTaskSlots的值为2，故每个TaskManager有2个slot。
 
 #### 2.4 运行Flink DataStream程序
@@ -199,17 +199,17 @@
 
   - 远程模式启动Scala-Shell
 
-    ![scala_shell_8081](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/scala_shell_8081.png)
+    ![scala_shell_8081](pic/scala_shell_8081.png)
 
   - 在 `scala>` 后输入 scala 代码
 
     运行结果如下图所示： 
 
-    ![scala_shell_8081_1](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/scala_shell_8081_1.png)
+    ![scala_shell_8081_1](pic/scala_shell_8081_1.png)
 
     另起终端中打开log目录下的out文件会显示flink的执行结果
 
-    ![tail_log_out](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/tail_log_out.png)
+    ![tail_log_out](pic/tail_log_out.png)
 
     **输入`:q`退出Scala-Shell**
 
@@ -219,30 +219,30 @@
 
     `终端1` 中启动本地服务
 
-    ![Standalone_t_1](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/Standalone_t_1.png)
+    ![Standalone_t_1](pic/Standalone_t_1.png)
 
     `终端2` 中提交程序jar包
 
-    ![standalone_t_2](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/standalone_t_2.png)
+    ![standalone_t_2](pic/standalone_t_2.png)
 
     `终端3` 中打开log目录下的out文件会显示flink的执行结果
 
     向 `终端1` 中输入数据进行wordcount计算，在 `终端3` 运行结果如下图所示:
 
-    ![standalone_t_3](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/standalone_t_3.png)
+    ![standalone_t_3](pic/standalone_t_3.png)
 
     在运行过程中另起一个终端执行 `jps` 查看进程
     此时会出现 CliFrontend 进程, 计算运行结束后该进程消失
 
-    ![start_cluster_jps](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/start_cluster_jps.png)
+    ![start_cluster_jps](pic/start_cluster_jps.png)
 
     DataStream程序终止的两种方法
 
     - 在[WebUI](localhost:8081)上`cancel`
 
-      ![standalone_webui](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/standalone_webui.png)
+      ![standalone_webui](pic/standalone_webui.png)
 
-      ![standalone_webui_2](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/standalone_webui_2.png)
+      ![standalone_webui_2](pic/standalone_webui_2.png)
 
     - 命令行终止`flink cancel JobID`，`JobID`通过`flink list`查询
 
@@ -252,26 +252,26 @@
 
     `终端1` 中启动本地服务
 
-    ![detached_t_2](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/detached_t_2.png)
+    ![detached_t_2](pic/detached_t_2.png)
 
       `终端2` 中提交程序jar包
 
-    ![detached_t_3](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/detached_t_3.png)
+    ![detached_t_3](pic/detached_t_3.png)
 
     程序提交完毕后会自动退出客户端，不再打印作业进度等信息
 
     `终端3` 中打开log目录下的out文件会显示flink的执行结果
 
-    ![tail_log_out](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/tail_log_out.png)
+    ![tail_log_out](pic/tail_log_out.png)
 
       向 `终端1` 中输入数据进行wordcount计算，在 `终端3` 运行结果如下图所示:
 
-    ![detached_t_1](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/detached_t_1.png)
+    ![detached_t_1](pic/detached_t_1.png)
 
       在运行过程中另起一个终端执行 `jps` 查看进程
       此时不会出现 CliFrontend 进程
 
-    ![start_cluster_jps](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/start_cluster_jps.png)
+    ![start_cluster_jps](pic/start_cluster_jps.png)
 
       DataStream程序终止的两种方法
 
@@ -287,7 +287,7 @@
     ```shell
     >>> ~/flink-1.7.2/bin/stop-cluster.sh
     ```
-    ![stop-cluster](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/pic/stop-cluster.png)
+    ![stop-cluster](pic/stop-cluster.png)
 
 *   查看进程，验证是否成功停止服务
 
@@ -345,9 +345,9 @@
 *   查看进程，验证是否成功启动服务
     * 因为在此分布式部署模式下，Master节点充当Master角色，各Slaves节点充当Worker角色，故在Master节点上会存在一个JobManager进程，各Slaves节点上会存在一个TaskManager进程。分别在Master和Slaves上使用jps命令，若在Master上出现StandeloneSessionClusterEntrypoint进程，且在Slaves上出现TaskManagerRunner进程，则表明配置成功且启动成功。如下图所示：
 
-      ![flink_start-master](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/dist/flink_start-master.png)
+      ![flink_start-master](dist/flink_start-master.png)
 
-      ![flink_start_slave](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/dist/flink_start_slave.png)
+      ![flink_start_slave](dist/flink_start_slave.png)
 
       `在standalone模式下，Jobmanager进程名为StandaloneSessionClusterEntrypoint`
 
@@ -357,7 +357,7 @@
       日志信息在 /flink-1.7.2/log 目录
     * 访问flink web界面
 
-      ![start-web](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/dist/start-web.png)
+      ![start-web](dist/start-web.png)
 
       当前有2个TaskManager（即Slave1、Slave2），因为更改配置文件taskmanager.numberOfTaskSlots项其为2，故Task Slots的总数为4。
 #### 3.4 运行Flink DataStream程序
@@ -365,19 +365,19 @@
 *   通过提交 jar 包运行DataStream程序
     * 默认模式提交，可以在客户端看到应用程序运行过程中的信息
 
-      ![jar_default](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/dist/jar_default.png)
+      ![jar_default](dist/jar_default.png)
 
       使用jps命令，默认模式提交出现CliFrontend进程，用于提交作业并接受返回信息，应用程序运行结束后该进程消失。
 
-      ![cliFrontend-master](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/dist/cliFrontend-master.png)
+      ![cliFrontend-master](dist/cliFrontend-master.png)
 
       在程序运行位置的flink log目录下输入命令：tail -f flink-xxx-taskexecutor-x-xxx.out，查看运行结果：  
 
-      ![jar_default_1](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/dist/jar_default_1.png)
+      ![jar_default_1](dist/jar_default_1.png)
 
       访问flink web界面查看程序运行位置
 
-      ![jar-web](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/dist/jar-web.png)
+      ![jar-web](dist/jar-web.png)
 
       
 
@@ -392,17 +392,17 @@
 
     * 在程序运行位置的flink log目录下输入命令：tail -f flink-xxx-taskexecutor-x-xxx.out，查看运行结果：
 
-      ![jar-detached_master](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/dist/jar-detached_master.png)
+      ![jar-detached_master](dist/jar-detached_master.png)
 
       `程序提交完毕后退出客户端`
 
       detached模式下无CliFrontend进程
 
-      ![jar_detached-jps](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/dist/jar_detached-jps.png)
+      ![jar_detached-jps](dist/jar_detached-jps.png)
 
       访问flink web界面查看程序运行位置
 
-      ![jar_detached_web](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/dist/jar_detached_web.png)
+      ![jar_detached_web](dist/jar_detached_web.png)
 
 
 
@@ -412,7 +412,7 @@
     
     + 使用命令行停止。先使用命令./bin/flink list获取正在运行的程序及其ID，再使用命令./bin/flink cancel ID根据程序ID停止程序
     
-      ![flink_cancel](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/dist/flink_cancel.png)
+      ![flink_cancel](dist/flink_cancel.png)
 
 #### 3.5 停止Flink服务
 
@@ -422,7 +422,7 @@
     ```
 *   查看进程，验证是否成功停止服务
     *   若成功停止，JobManager进程和TaskManager进程应消失，如下图所示：
-    *   ![stop-cluster](/home/syx/文档/Dase/DistributedSytem/Hands_on/13周作业/dist/stop-cluster.png)
+    *   ![stop-cluster](dist/stop-cluster.png)
 
 
 ## Flink编程
