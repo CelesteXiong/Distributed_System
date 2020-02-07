@@ -251,14 +251,14 @@ vertex.voteToHalt();
 
 
 ## 一些变量类
-
+以下为Jiayi Mei补充内容哟 : )
 - Text
 
 ```java
 Text LastName = new Text();
 ```
 
-Text——split——> StringList
+- Text——split——> StringList
 
 ```java
 String[] line = value.toString().split("\t");
@@ -272,60 +272,59 @@ LastName.set(line[1]);
 List<String> name = new ArrayList();
 name.add("xxx");
 ```
-
 - 判断x是不是数字
 
-  ```java
-  StringUtils.isNumeric(x)
-  ```
+```java
+StringUtils.isNumeric(x)
+```
 
 - RDD（spark中）
 
-  ```java
-  public JavaPairRDD<String, Integer> wordcount(JavaRDD<String> lines) {
-          return lines
-                  .flatMap((String line) -> Arrays.asList(line.split(" ")).iterator())
-                  .mapToPair((String word) -> new Tuple2<>(word, 1))
-                  .reduceByKey((Integer integer, Integer integer2) -> integer + integer2);
-      }
-  ```
+```java
+public JavaPairRDD<String, Integer> wordcount(JavaRDD<String> lines) {
+        return lines
+                .flatMap((String line) -> Arrays.asList(line.split(" ")).iterator())
+                .mapToPair((String word) -> new Tuple2<>(word, 1))
+                .reduceByKey((Integer integer, Integer integer2) -> integer + integer2);
+    }
+```
 
-  JavaPairRDD之间可以做join：
+- JavaPairRDD之间可以做join：
 
-  ```
-  JavaPairRDD result = javapairRdd1.join(javapairRdd2);
-  ```
+```
+JavaPairRDD result = javapairRdd1.join(javapairRdd2);
+```
 
 - vector 取出
 
-  ```
-  vector.apply(0)
-  vector.apply(1)
-  ```
+```
+vector.apply(0)
+vector.apply(1)
+```
 
 - values取出
 
-  ```
-  values.get(0)
-  ```
+```
+values.get(0)
+```
 
 - Tuple2<XX, XX> 取出
 
-  ```
-  Tuple2._1
-  Tuple2._2
-  ```
+```
+Tuple2._1
+Tuple2._2
+```
 
 - Tuple取出
 
-  ```
-  tuple.getInteger(0) 
-  tuple.getInteger(1) 
-  ```
+```
+tuple.getInteger(0) 
+tuple.getInteger(1) 
+```
 
 - 计算平方
 
-  ```
-   Math.pow(x, 2)
-  ```
+```
+ Math.pow(x, 2)
+```
 

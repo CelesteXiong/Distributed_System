@@ -1,0 +1,20 @@
+No HADOOP_CONF_DIR set, using /home/ecnu//hadoop-1.2.1/conf 
+Warning: $HADOOP_HOME is deprecated.
+
+19/12/11 16:58:07 INFO utils.ConfigurationUtils: No edge input format specified. Ensure your InputFormat does not require one.
+19/12/11 16:58:07 INFO utils.ConfigurationUtils: No edge output format specified. Ensure your OutputFormat does not require one.
+19/12/11 16:58:07 INFO job.GiraphJob: run: Since checkpointing is disabled (default), do not allow any task retries (setting mapred.map.max.attempts = 1, old value = 4)
+19/12/11 16:58:12 INFO job.GiraphJob: Tracking URL: http://219.228.135.207:50030/jobdetails.jsp?jobid=job_201912111235_0004
+19/12/11 16:58:12 INFO job.GiraphJob: Waiting for resources... Job will start only when it gets all 4 mappers
+19/12/11 16:58:54 INFO job.HaltApplicationUtils$DefaultHaltInstructionsWriter: writeHaltInstructions: To halt after next superstep execute: 'bin/halt-application --zkServer may-lab:22181 --zkNode /_hadoopBsp/job_201912111235_0004/_haltComputation'
+19/12/11 16:58:54 INFO mapred.JobClient: Running job: job_201912111235_0004
+19/12/11 16:58:55 INFO mapred.JobClient:  map 50% reduce 0%
+19/12/11 17:18:23 INFO mapred.JobClient: Job complete: job_201912111235_0004
+19/12/11 17:18:23 INFO mapred.JobClient: Counters: 5
+19/12/11 17:18:23 INFO mapred.JobClient:   Job Counters 
+19/12/11 17:18:23 INFO mapred.JobClient:     Launched map tasks=4
+19/12/11 17:18:23 INFO mapred.JobClient:     SLOTS_MILLIS_REDUCES=0
+19/12/11 17:18:23 INFO mapred.JobClient:     Total time spent by all reduces waiting after reserving slots (ms)=0
+19/12/11 17:18:23 INFO mapred.JobClient:     SLOTS_MILLIS_MAPS=2406969
+19/12/11 17:18:23 INFO mapred.JobClient:     Total time spent by all maps waiting after reserving slots (ms)=0
+
